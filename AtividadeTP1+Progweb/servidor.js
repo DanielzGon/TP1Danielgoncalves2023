@@ -1,11 +1,11 @@
-const port = 8000;
+const port = 4040;
 
 const express = require("express");
 const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
-app.listen(8000, ()=> console.log
+app.listen(4040, ()=> console.log
 ('Servidor funcionando na porta: ', port))
 
 const cors = require('cors')
