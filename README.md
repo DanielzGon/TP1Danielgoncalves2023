@@ -1,2 +1,2 @@
 # TP1Danielgoncalves2023
-Códigos de treino e de aula
+Códigos da aula de técnicas de programação
