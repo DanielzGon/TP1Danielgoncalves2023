@@ -5,9 +5,6 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
-app.listen(4040, ()=> console.log
-('Servidor funcionando na porta: ', port))
-
 const cors = require('cors')
 app.use(cors())
 
@@ -22,3 +19,5 @@ app.get ('/informacoes', (req, res) => {
 app.get ('/cadastro', (req, res) => {
     res.render('cadastro')
 })
+
+app.listen(port, ()=> console.log ('Servidor funcionando na porta: ', port))
