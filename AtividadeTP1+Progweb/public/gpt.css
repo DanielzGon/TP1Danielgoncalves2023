@@ -9,43 +9,33 @@ body {
     background-color: #0C5271;
 }
 
-.body-alimentacao h1, .body-alimentacao h3 {
+.body-alimentacao h1,.body-alimentacao h3 {
     color: #fff;
     text-align: center;
     padding: 20px 0;
 }
 
-.body-alimentacao p, .body-alimentacao div {
+.body-alimentacao p,.body-alimentacao div {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
     background-color: #084B5A;
     color: #fff;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
     line-height: 1.6;
 }
 
+.body-alimentacao .img-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .body-alimentacao .img1, .body-alimentacao .img2 {
-    display: block;
-    max-width: 100%;
+    max-width: 45%;
     height: auto;
-    margin: 0 auto;
-}
-
-.body-alimentacao a {
-    display: block;
-    color: #0C5271;
-    background-color: #fff;
-    padding: 10px 20px;
-    margin: 20px auto;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-    width: fit-content;
-}
-
-.body-alimentacao a:hover {
-    background-color: #f4f4f4;
+    border-radius: 52px;
+    padding: 1%;
 }
 
 /* Página do Cadastro */
@@ -65,7 +55,7 @@ body {
     padding: 20px;
     background-color: #084B5A;
     color: #fff;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
     line-height: 1.6;
 }
 
@@ -74,7 +64,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     background-color: #084B5A;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 .body-cadastro input[type="text"] {
@@ -85,55 +75,34 @@ body {
     border-radius: 5px;
     border: none;
 }
-
-.body-cadastro a {
+a {
     display: block;
     color: #0C5271;
     background-color: #fff;
     padding: 10px 20px;
-    margin: 20px auto;
+    margin: 10px auto;
     text-decoration: none;
     border-radius: 5px;
     text-align: center;
     width: fit-content;
+    transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
-.body-cadastro a:hover {
-    background-color: #f4f4f4;
+a:hover {
+    background-color:rgb(133, 183, 254);
+    transform: scale(1.1);
 }
 
-h2{
+
+h2 {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
     background-color: #084B5A;
     color: #fff;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
-.img1, .img2 {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 52px;
-    padding: 1%;
-}
-
-.img1 {
-    width: 550px;
-    height: auto;
-}
-
-.img2 {
-    width: 550px;
-    height: auto;
-}
-
-.img3{
-    text-align: center;
-    border-radius: 52px;
-}
-label{
-    color:white;
+label {
+    color: white;
 }

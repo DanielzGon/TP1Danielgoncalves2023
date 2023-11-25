@@ -34,7 +34,7 @@ app.post("/salvar", (req, res) => {
   };
   console.log(cadastro);
   console.log("\n" + JSON.stringify(cadastro) + ",");
-  fs.appendFileSync("nomes.json", `\n${JSON.stringify(cadastro)}`);
+  fs.appendFileSync("dados.json", `\n${JSON.stringify(cadastro)}`);
   resultado = `Olá, ${nomeNoForm}`;
   res.render("salvar", { resultado });
 });
