@@ -44,7 +44,7 @@ app.post('/pedirDadosdoUsuario', (req, res) => {
   console.log('\n' + JSON.stringify(cadastro) + ',');
   vetorNomes.push(cadastro)
   fs.writeFileSync('usuario.json', JSON.stringify(vetorNomes))
-  res.redirect('/mostrar')
+  res.redirect('/informacoes')
 })
 
 app.get('/mostrar', (req, res) => {
