@@ -11,33 +11,34 @@ app.use(express.static("public"));
 const cors = require("cors");
 app.use(cors());
 
+let vetorNomes = []
+if (fs.existsSync('nomes.json')) {
+    const dados = fs.readFileSync('nomes.json', 'utf-8')
+    console.log(dados);
+    vetorNomes = JSON.parse(dados)
+}
+
+
 app.get("/", (req, res) => {
-  res.render("index");
+    const result = null
+  res.render("index", { result });
 });
 
-app.get("/informacoes", (req, res) => {
-  res.render("partials/informacoes");
-});
+app.get('/cadastro', (req, res) => {
+    let nomeNoForm = req.body.nome
+    let cadastro = {nome: nomeNoForm}
+    console.log(cadastro);
+    console.log('\n'+JSON.stringify(cadastro)+',');
+    vetorNomes.push(cadastro)
+    fs.writeFileSync('nomes.json', JSON.stringify(vetorNomes))
 
-app.get("/cadastro", (req, res) => {
-  res.render("cadastro");
-});
+    const result = `Olá, ${nomeNoForm}`
+    res.render('cadastro',)
+})
 
-app.post("/salvar", (req, res) => {
-  let nomeNoForm = req.body.nome;
-  let sobrenomeNoForm = req.body.sobrenome;
-  let telefoneNoForm = req.body.telefone;
-  let cadastro = {
-    nome: nomeNoForm,
-    sobrenome: sobrenomeNoForm,
-    telefone: telefoneNoForm,
-  };
-  
-  console.log(cadastro);
-  console.log("\n" + JSON.stringify(cadastro) + ",");
-  fs.appendFileSync("dados.json", JSON.stringify(cadastro));
-  resultado = `Olá, ${nomeNoForm} ${sobrenomeNoForm}`
-  res.render("salvar", { resultado });
+app.get("/nomes", (req, res) => {
+    const result = null
+  res.render("nomes", { result });
 });
 
 app.listen(port, () => console.log("Servidor funcionando na porta: ", port));
