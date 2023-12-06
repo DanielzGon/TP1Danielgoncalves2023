@@ -32,10 +32,11 @@ app.post("/salvar", (req, res) => {
     sobrenome: sobrenomeNoForm,
     telefone: telefoneNoForm,
   };
+  
   console.log(cadastro);
   console.log("\n" + JSON.stringify(cadastro) + ",");
-  fs.appendFileSync("dados.json", `\n${JSON.stringify(cadastro)}`);
-  resultado = `Olá, ${nomeNoForm}`;
+  fs.appendFileSync("dados.json", JSON.stringify(cadastro));
+  resultado = `Olá, ${nomeNoForm} ${sobrenomeNoForm}`
   res.render("salvar", { resultado });
 });
 
