@@ -9,3 +9,9 @@
     "test": "nodemon servidor.js"
   }
 }
+{
+"engines": {
+        "node": ">=14"
+    }
+}
+
