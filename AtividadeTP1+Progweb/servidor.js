@@ -12,33 +12,45 @@ const cors = require("cors");
 app.use(cors());
 
 let vetorNomes = []
-if (fs.existsSync('nomes.json')) {
-    const dados = fs.readFileSync('nomes.json', 'utf-8')
-    console.log(dados);
-    vetorNomes = JSON.parse(dados)
+if (fs.existsSync('usuario.json')) {
+  const dados = fs.readFileSync('usuario.json', 'utf-8')
+  console.log(dados);
+  vetorNomes = JSON.parse(dados)
 }
 
 
 app.get("/", (req, res) => {
-    const result = null
-  res.render("index", { result });
+  res.render("index");
 });
 
-app.get('/cadastro', (req, res) => {
-    let nomeNoForm = req.body.nome
-    let cadastro = {nome: nomeNoForm}
-    console.log(cadastro);
-    console.log('\n'+JSON.stringify(cadastro)+',');
-    vetorNomes.push(cadastro)
-    fs.writeFileSync('nomes.json', JSON.stringify(vetorNomes))
+app.get("/informacoes", (req, res) => {
+  res.render("partials/informacoes");
+});
 
-    const result = `Olá, ${nomeNoForm}`
-    res.render('cadastro',)
+app.get("/cadastro", (req, res) => {
+  res.render("cadastro");
+});
+
+app.post('/pedirDadosdoUsuario', (req, res) => {
+  let nomeNoForm = req.body.nome
+  let sobrenomeNoForm = req.body.sobrenome
+  let telefoneNoForm = req.body.telefone
+  let cadastro = {
+    'nome': nomeNoForm,
+    'sobrenome': sobrenomeNoForm,
+    'telefone': telefoneNoForm,
+  }
+  console.log(cadastro);
+  console.log('\n' + JSON.stringify(cadastro) + ',');
+  vetorNomes.push(cadastro)
+  fs.writeFileSync('usuario.json', JSON.stringify(vetorNomes))
+  res.redirect('/mostrar')
 })
 
-app.get("/nomes", (req, res) => {
-    const result = null
-  res.render("nomes", { result });
-});
+app.get('/mostrar', (req, res) => {
+  content = JSON.parse(fs.readFileSync('usuario.json', 'utf8'))
+  res.render('result', { vetorNomes })
+})
+
 
 app.listen(port, () => console.log("Servidor funcionando na porta: ", port));
